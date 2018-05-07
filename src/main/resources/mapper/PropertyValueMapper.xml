@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wmyskxz.mapper.PropertyValueMapper">
+    <resultMap id="BaseResultMap" type="cn.wmyskxz.pojo.PropertyValue">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="product_id" jdbcType="INTEGER" property="product_id" />
+        <result column="property_id" jdbcType="INTEGER" property="property_id" />
+        <result column="value" jdbcType="VARCHAR" property="value" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, product_id, property_id, value
+  </sql>
+    <select id="selectByExample" parameterType="cn.wmyskxz.pojo.PropertyValueExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List" />
+        from property_value
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from property_value
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from property_value
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.wmyskxz.pojo.PropertyValue" useGeneratedKeys="true">
+    insert into property_value (product_id, property_id, value
+      )
+    values (#{product_id,jdbcType=INTEGER}, #{property_id,jdbcType=INTEGER}, #{value,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.wmyskxz.pojo.PropertyValue" useGeneratedKeys="true">
+        insert into property_value
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="product_id != null">
+                product_id,
+            </if>
+            <if test="property_id != null">
+                property_id,
+            </if>
+            <if test="value != null">
+                value,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="product_id != null">
+                #{product_id,jdbcType=INTEGER},
+            </if>
+            <if test="property_id != null">
+                #{property_id,jdbcType=INTEGER},
+            </if>
+            <if test="value != null">
+                #{value,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.wmyskxz.pojo.PropertyValue">
+        update property_value
+        <set>
+            <if test="product_id != null">
+                product_id = #{product_id,jdbcType=INTEGER},
+            </if>
+            <if test="property_id != null">
+                property_id = #{property_id,jdbcType=INTEGER},
+            </if>
+            <if test="value != null">
+                value = #{value,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.wmyskxz.pojo.PropertyValue">
+    update property_value
+    set product_id = #{product_id,jdbcType=INTEGER},
+      property_id = #{property_id,jdbcType=INTEGER},
+      value = #{value,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

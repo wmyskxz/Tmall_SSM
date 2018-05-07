@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5">
+    <CLASSES>
+      <root url="jar://D:/maven/repository/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/maven/repository/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/maven/repository/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

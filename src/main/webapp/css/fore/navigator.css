@@ -1,0 +1,45 @@
+div.tb-shop {
+	text-align: center;
+}
+
+div.page {
+	padding-top: 80px;
+}
+
+nav.tb-shop-nav {
+	text-align: center;
+	height: 40px;
+	background-color: #3C3C3C;
+	padding-top: 5px;
+}
+
+nav.tb-shop-nav span {
+	color: white;
+	font-size: 20px;
+	margin: 5px 5px;
+}
+
+div.tb-property {
+	margin: 40px 160px;
+}
+
+div.tb-wrap {
+	width: 418px;
+	float: left;
+}
+
+div.tb-gallery {
+	overflow: hidden;
+	padding: 0 20px;
+}
+
+div.tb-detail-hd{
+
+}
+
+div.tb-detail-hd h1 a{
+	line-height: 1;
+	font-size: 16px;
+	font-weight: 700;
+	color: #000000;
+}

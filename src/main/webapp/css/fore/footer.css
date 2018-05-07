@@ -1,0 +1,43 @@
+div.footer {
+	margin: 0px 0px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #e7e7e7;
+	display: block!important;
+}
+
+div.footer_ensure {
+	margin-top: 24px;
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+div.footer_desc {
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #e7e7e7;
+	padding-top: 30px;
+	margin: 0px 20px;
+}
+
+div.footer_desc div.descColumn {
+	width: 20%;
+	float: left;
+	padding-left: 15px;
+}
+
+div.footer_desc div.descColumn span.descColumnTitle {
+	color: #646464;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+div.footer_desc a {
+	text-decoration: none !important;
+	display: block;
+	padding-top: 3px;
+}
+
+div.footer_desc a:hover {
+	text-decoration: underline!important;
+}

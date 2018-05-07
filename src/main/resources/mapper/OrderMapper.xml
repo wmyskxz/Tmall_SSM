@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wmyskxz.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="cn.wmyskxz.pojo.Order">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="order_code" jdbcType="VARCHAR" property="order_code"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="post" jdbcType="VARCHAR" property="post"/>
+        <result column="receiver" jdbcType="VARCHAR" property="receiver"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="user_message" jdbcType="VARCHAR" property="user_message"/>
+        <result column="create_date" jdbcType="TIMESTAMP" javaType="java.sql.Date" property="create_date"/>
+        <result column="pay_date" jdbcType="TIMESTAMP" javaType="java.sql.Date" property="pay_date"/>
+        <result column="delivery_date" jdbcType="TIMESTAMP" javaType="java.sql.Date" property="delivery_date"/>
+        <result column="confirm_date" jdbcType="TIMESTAMP" javaType="java.sql.Date" property="confirm_date"/>
+        <result column="user_id" jdbcType="INTEGER" property="user_id"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, order_code, address, post, receiver, mobile, user_message, create_date, pay_date, 
+    delivery_date, confirm_date, user_id, status
+  </sql>
+    <select id="selectByExample" parameterType="cn.wmyskxz.pojo.OrderExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from order_
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from order_
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.wmyskxz.pojo.Order" useGeneratedKeys="true">
+    insert into order_ (order_code, address, post, 
+      receiver, mobile, user_message, 
+      create_date, pay_date, delivery_date, 
+      confirm_date, user_id, status
+      )
+    values (#{order_code,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
+      #{receiver,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{user_message,jdbcType=VARCHAR}, 
+      #{create_date,jdbcType=TIMESTAMP}, #{pay_date,jdbcType=TIMESTAMP}, #{delivery_date,jdbcType=TIMESTAMP}, 
+      #{confirm_date,jdbcType=TIMESTAMP}, #{user_id,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.wmyskxz.pojo.Order"
+            useGeneratedKeys="true">
+        insert into order_
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="order_code != null">
+                order_code,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="post != null">
+                post,
+            </if>
+            <if test="receiver != null">
+                receiver,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="user_message != null">
+                user_message,
+            </if>
+            <if test="create_date != null">
+                create_date,
+            </if>
+            <if test="pay_date != null">
+                pay_date,
+            </if>
+            <if test="delivery_date != null">
+                delivery_date,
+            </if>
+            <if test="confirm_date != null">
+                confirm_date,
+            </if>
+            <if test="user_id != null">
+                user_id,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="order_code != null">
+                #{order_code,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="post != null">
+                #{post,jdbcType=VARCHAR},
+            </if>
+            <if test="receiver != null">
+                #{receiver,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="user_message != null">
+                #{user_message,jdbcType=VARCHAR},
+            </if>
+            <if test="create_date != null">
+                #{create_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="pay_date != null">
+                #{pay_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delivery_date != null">
+                #{delivery_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="confirm_date != null">
+                #{confirm_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="user_id != null">
+                #{user_id,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.wmyskxz.pojo.Order">
+        update order_
+        <set>
+            <if test="order_code != null">
+                order_code = #{order_code,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="post != null">
+                post = #{post,jdbcType=VARCHAR},
+            </if>
+            <if test="receiver != null">
+                receiver = #{receiver,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="user_message != null">
+                user_message = #{user_message,jdbcType=VARCHAR},
+            </if>
+            <if test="create_date != null">
+                create_date = #{create_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="pay_date != null">
+                pay_date = #{pay_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delivery_date != null">
+                delivery_date = #{delivery_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="confirm_date != null">
+                confirm_date = #{confirm_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="user_id != null">
+                user_id = #{user_id,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.wmyskxz.pojo.Order">
+    update order_
+    set order_code = #{order_code,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      post = #{post,jdbcType=VARCHAR},
+      receiver = #{receiver,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      user_message = #{user_message,jdbcType=VARCHAR},
+      create_date = #{create_date,jdbcType=TIMESTAMP},
+      pay_date = #{pay_date,jdbcType=TIMESTAMP},
+      delivery_date = #{delivery_date,jdbcType=TIMESTAMP},
+      confirm_date = #{confirm_date,jdbcType=TIMESTAMP},
+      user_id = #{user_id,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

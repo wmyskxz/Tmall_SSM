@@ -1,0 +1,185 @@
+body {
+    font-size: 12px;
+    font-family: Arial;
+}
+
+/* 工作区域固定宽度，自动居中 */
+.workArea {
+    width: 1230px;
+    margin: 0 auto;
+}
+
+/* 天猫红配色 */
+.redColor {
+    color: #FF0036;
+}
+
+/* 超链设置为灰色 */
+a {
+    color: #999;
+}
+
+a:hover {
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 设置为天猫红 */
+    color: #FF0036;
+}
+
+.boldWord{
+    font-weight: bold;
+}
+
+
+/* ——————————————————————————————分割线———————————————————————————— */
+
+/* 顶部导航栏固定高度 */
+#site-nav {
+    background-color: #f2f2f2;
+    height: 32px;
+    /* 顶部导航栏下面的灰色横线 */
+    border-bottom: 1px solid #e7e7e7;
+}
+
+#site-nav span {
+    padding-left: 20px;
+    line-height: 32px;
+}
+
+/* ——————————————————————————————分割线———————————————————————————— */
+
+.header {
+    height: 130px;
+}
+
+.headerLayout {
+    height: 130px;
+}
+
+.logo img {
+    height: 130px;
+    width: 240px;
+    position: absolute;
+    margin-left: -15px;
+}
+
+.mallSearch-input {
+    height: 40px;
+    width: 625px;
+    background-color: #FF0036;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+    padding: 1px;
+    /* 垂直居中 */
+    position: relative;
+    top: 35%;
+}
+
+.mallSearch-input input {
+    height: 36px;
+    width: 490px;
+    border: none;
+    margin: 1px;
+    color: black;
+    /* 去掉输入框轮廓，否则获取焦点时会发生颜色变化 */
+    outline: none;
+    /* 边框设置成透明的，否则会有边框阴影 */
+    border: 1px solid transparent;
+    padding-left: 8px;
+}
+
+.mallSearch-input button {
+    width: 125px;
+    height: 36px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    right: 0;
+    cursor: pointer;
+    overflow: hidden;
+    /* 边框设置成透明的，否则会有边框阴影 */
+    border: 1px solid transparent;
+    background-color: #FF0036;
+    color: white;
+}
+
+.hot-query {
+    height: 28px;
+    font-size: 14px;
+    padding: 4px 0 0;
+    overflow: hidden;
+    margin-left: -13px;
+}
+
+.hot-query li {
+    display: inline-block;
+    padding: 0 12px;
+    font-size: 14px;
+}
+
+.hot-query .hot-query-li {
+    border-left: 1px solid #cccccc;
+    line-height: 1.1;
+}
+
+li, ul {
+    /* 去掉前面的点 */
+    list-style: none;
+}
+
+/* ——————————————————————————————分割线———————————————————————————— */
+
+.main-nav {
+    height: 36px;
+    border-bottom: 1px solid #FF0036;
+}
+
+.category-type {
+    width: 200px;
+    float: left;
+    height: 36px;
+    background-color: #FF0036;
+    color: white;
+    font-size: 16px;
+}
+
+.category-type .category-type-icon {
+    margin-left: 14px;
+    line-height: 36px;
+}
+
+.category-type .category-type-text {
+    margin-left: 8px;
+    font-weight: 700;
+}
+
+.main-nav img {
+    float: left;
+    height: 30px;
+    width: 100px;
+}
+
+.main-nav span a {
+    float: left;
+    padding: 0 8px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333;
+    line-height: 36px;
+}
+
+/* ——————————————————————————————分割线———————————————————————————— */
+.category-con {
+    background-color: #e8e8e8;
+}
+
+#carousel-of-product {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    left: 30px;
+}
+
+/* ——————————————————————————————分割线———————————————————————————— */
+
