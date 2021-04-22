@@ -38,7 +38,7 @@
         <!-- spring版本号 -->
         <spring.version>4.3.5.RELEASE</spring.version>
         <!-- mybatis版本号 -->
-        <mybatis.version>3.4.1</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
     </properties>
 
     <dependencies>
